@@ -12,8 +12,7 @@ COPY ./entrypoint.sh /code/entrypoint.sh
 # Expose the specified port
 ARG PORT
 ENV PORT=${PORT}
-ARG HOST
-ENV HOST=${HOST}
+
 ARG REGION
 ENV REGION=${REGION}
 
