@@ -2,7 +2,7 @@
 
 ## A simple REST server to leverage the Trend Micro Vision One File Security SDK.
 
-This uses FastApi to provide a simple asynchronous REST implementation of the File Security scanner. It has a single endpoint, "/scan". It also has API reference pages located @ "/docs" or "/redoc".
+This uses FastAPI to provide a simple asynchronous REST implementation of the File Security scanner. It has a single endpoint, "/scan". It also has API reference pages located @ "/docs" or "/redoc".
 
 **WARNING**: This does not have authentication & authorization built into the REST endpoint. It is highly advised to not make it public facing.
 
