@@ -40,15 +40,16 @@ app = FastAPI()
 @app.post("/scan")
 async def scan_file(file: UploadFile, response: Response) -> ScanResult | None:
     try:
-        HANDLE = amaas.init_by_region(region, api_key=v1_api_key)
+        handle = amaas.init_by_region(region, api_key=v1_api_key)
         file_contents = file.file.read()
         scan_results = json.loads(
             await amaas.scan_buffer(
-                channel=HANDLE,
+                channel=handle,
                 bytes_buffer=file_contents,
                 uid=file.filename,
             )
         )
+        await amaas.quit(handle)
 
         if not scan_results:
             response.status_code = HTTPStatus.UNPROCESSABLE_ENTITY
@@ -69,5 +70,4 @@ async def scan_file(file: UploadFile, response: Response) -> ScanResult | None:
             logging.error("Rate Limit Exceeded.")
 
     finally:
-        await amaas.quit(HANDLE)
         file.file.close()
