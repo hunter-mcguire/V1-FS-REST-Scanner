@@ -1,6 +1,7 @@
 # File Security REST Scanner
 
 ## A simple REST server to leverage the Trend Micro Vision One File Security SDK.
+The SDK can be found here: https://github.com/trendmicro/tm-v1-fs-python-sdk
 
 This uses FastAPI to provide a simple asynchronous REST implementation of the File Security scanner. It has a single endpoint, "/scan". It also has API reference pages located @ "/docs" or "/redoc".
 
