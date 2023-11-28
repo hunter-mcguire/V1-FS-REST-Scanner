@@ -26,7 +26,7 @@ class ScanResult(BaseModel):
     foundMalwares: List
 
 
-region = os.getenv("REGION", default="us-1")
+region = os.getenv("REGION", default="us-east-1")
 v1_api_key = os.getenv("V1_API_KEY")
 
 if not v1_api_key:
