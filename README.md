@@ -18,14 +18,16 @@ docker build --build-arg PORT=<port> --build-arg REGION=<region> -t <your_image_
 PORT is an optional build argument. Default is 8000
 
 REGION is a mandatory build argument. Below is a list of valid regions.
-- us-1
-- in-1
-- de-1
-- sg-1
-- au-1
-- jp-1
-- gb-1
-- ca-1
+- ap-northeast-1
+- ap-south-1
+- ap-southeast-1
+- ap-southeast-2
+- ca-central-1
+- eu-central-1
+- eu-west-2
+- us-east-1
+- us-east-2
+
 
 *Please ensure you are providing the region that is associated with the API key that will be passed to the container as an environment variable.*
 
