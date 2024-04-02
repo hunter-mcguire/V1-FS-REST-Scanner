@@ -3,10 +3,10 @@
 ## A simple REST server to leverage the Trend Micro Vision One File Security SDK.
 File Security Documentation: https://docs.trendmicro.com/en-us/documentation/article/trend-vision-one-file-security
 
-Python SDK Github repo: https://github.com/trendmicro/tm-v1-fs-python-sdk
+Golang SDK Github repo: https://github.com/trendmicro/tm-v1-fs-golang-sdk
 
-This uses FastAPI to provide a simple asynchronous REST implementation of the File Security scanner. It has a single endpoint, "/scan". It also has API reference pages located @ "/docs" or "/redoc".
-
+This is a simple REST implementation of the File Security scanner. It has a single endpoint, "/scan".
+It accepts a multipart form upload to "file", and can also accept "tags" query parameter which is a comma-seperated string. ie ?tags=dev,east
 **WARNING**: This does not have authentication & authorization built into the REST endpoint. It is highly advised to not make it public facing.
 
 ## Build Image
@@ -16,8 +16,6 @@ To build the Docker image, use the following command:
 ```bash
 docker build --build-arg PORT=<port> --build-arg REGION=<region> -t <your_image_name> .
 ```
-
-PORT is an optional build argument. Default is 8000
 
 REGION is a mandatory build argument. Below is a list of valid regions.
 - ap-northeast-1
@@ -35,5 +33,5 @@ REGION is a mandatory build argument. Below is a list of valid regions.
 
 To run a the container
 ```bash
-docker run -e V1_API_KEY=<key> -p <HOST_PORT>:<CONTAINER_PORT> <your_image_name>
+docker run -e V1_KEY=<key> -p <HOST_PORT>:<CONTAINER_PORT> <your_image_name>
 ```
